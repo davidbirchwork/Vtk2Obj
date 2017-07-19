@@ -7,7 +7,7 @@ Will process either single or folders of .vtk files.
 
 Suggested usage - create an isosurface across the mesh and export this as a triangulated mesh in .vtk.  
 
-Instruction for ParaView Version 5.0.1
+# Instruction for ParaView Version 5.0.1
 
 Creation of the geoemtry *.vtk file:
 - Open one paraview file
@@ -20,7 +20,7 @@ Creation of the geoemtry *.vtk file:
 - File - Save Data - Files of type : Legacy VTK Files (*.vtk) - Save
 - File type: ASCII - OK
 
-Creation of the *.vtk isosurface files :
+# Creation of the *.vtk isosurface files :
 - Open paraview files
 - Select only the field of interest in Properties
 - Filter - Contour
