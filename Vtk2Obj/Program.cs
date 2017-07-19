@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace IsoSurfaceToObj {
     class Program {
@@ -22,11 +23,14 @@ namespace IsoSurfaceToObj {
             }
             else {
                 if (Directory.Exists(vtkfile)) {
-                    foreach (var file in Directory.GetFiles(vtkfile)) {
-                        ConvertVtkFile(file);
-                    }
+                    Parallel.ForEach(Directory.GetFiles(vtkfile), ConvertVtkFile);
+                    //foreach (var file in ) {
+                    //    ConvertVtkFile(file);
+                    //}
                 }
-            }            
+            }
+
+            Console.ReadLine();
 
         }
 
@@ -69,6 +73,7 @@ namespace IsoSurfaceToObj {
 
             // header
             file.AppendLine("# object generated from DAvid Birch vtk to obj");
+            file.AppendLine("mtllib materials.mtl");//todo set this to your library. 
             
             file.AppendLine();
             for (int v = 0; v < points.GetLength(0); v++) {
